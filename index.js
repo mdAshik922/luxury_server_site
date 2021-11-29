@@ -50,7 +50,7 @@ async function run() {
       const roomsCollection = database.collection('rooms');
       const serviceCollection = database.collection('service');
       const orderCollection = database.collection('order');
-      const reviewCallection = database.collection('review');
+      const reviewCollection = database.collection('review');
 
     
 app.get('/rooms', async (req, res) => {
