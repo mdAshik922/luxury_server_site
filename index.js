@@ -68,14 +68,14 @@ app.get('/service', async (req, res) => {
 
 app.get('/service/:id', async (req, res) => {
   const id = req.params.id;
-  const query =  {_id: ObjectId(id)};
+  const query =  { _id: ObjectId(id) };
   const service = await serviceCollection.findOne(query);
    res.json(service);
  });
 
 app.get('/order', async (req, res) => {
   const email = req.query.email;
-  const query = {email: email};
+  const query = { email: email };
  const order = orderCollection.find(query);
  const result = await order.toArray();
   res.json(result);
@@ -115,10 +115,10 @@ app.put("/updateProduct", async (req, res) => {
 });
 
  //# delete specific order: delete api
- app.delete("/placeorder/:id", async (req, res) => {
-  const result = await orderCollection.deleteOne({
-    _id: ObjectId(req.params.id),
-  });
+ app.delete("/deleteOrder/:id", async (req, res) => {
+  const id = req.params.id;
+  const query = { _id: ObjectId(id) };
+  const result = await orderCollection.deleteOne(query);
   res.json(result);
 });
 
@@ -151,7 +151,6 @@ app.get('/users/:email', async (req, res) => {
 app.post('/users', async (req, res) => {
   const user = req.body;
   const result = await userCollection.insertOne(user);
-  console.log(result);
   res.json(result);
 });
 
