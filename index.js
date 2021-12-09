@@ -124,9 +124,9 @@ app.put("/updateProduct", async (req, res) => {
  app.delete("/deleteOrder/:id", async (req, res) => {
   const id = req.params.id;
   console.log(id);
-  const query = { _id: ObjectId(id) };
+  const query = { _id: id };
   const result = await orderCollection.deleteOne(query);
-  res.json(result);
+  res.send(result);
 });
 
 app.post('/review', async(req, res) => {
