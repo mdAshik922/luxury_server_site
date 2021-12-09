@@ -114,21 +114,28 @@ app.put("/updateProduct", async (req, res) => {
   res.json(result);
 });
 
+ //# add a new product: post api
+ app.post("/addProduct", async (req, res) => {
+  const result = await orderCollection.insertOne(req.body);
+  res.json(result);
+});
+
  //# delete specific order: delete api
  app.delete("/deleteOrder/:id", async (req, res) => {
   const id = req.params.id;
+  console.log(id);
   const query = { _id: ObjectId(id) };
   const result = await orderCollection.deleteOne(query);
   res.json(result);
 });
 
-app.post('/review', async(req,res) => {
+app.post('/review', async(req, res) => {
 const message = req.body;
 const allMessage = await reviewCollection.insertOne(message);
     res.json(allMessage);
 });
 
-app.get('/review', async(req,res) => {
+app.get('/review', async(req, res) => {
    const review = reviewCollection.find({});
    const result = await review.toArray();
     res.json(result);
@@ -144,7 +151,7 @@ app.get('/users/:email', async (req, res) => {
   let isAdmin = false;
   if (user?.role === 'admin') {
       isAdmin = true;
-  }
+  };
   res.json({ admin: isAdmin });
 });
 
