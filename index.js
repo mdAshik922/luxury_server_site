@@ -87,6 +87,13 @@ const allOrder = await orderCollection.insertOne(order);
     res.json(allOrder);
 });
 
+ //#single data load: get api
+ app.get("/placeOrder/:id", async (req, res) => {
+  const result = await product_collection.findOne({
+    _id: ObjectId(req.params.id),
+  });
+  res.json(result);
+});
 
  //# Change status: put api
  app.put("/updateOrderStatus", async (req, res) => {
