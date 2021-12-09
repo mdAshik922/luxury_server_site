@@ -123,7 +123,6 @@ app.put("/updateProduct", async (req, res) => {
  //# delete specific order: delete api
  app.delete("/deleteOrder/:id", async (req, res) => {
   const id = req.params.id;
-  console.log(id);
   const query = { _id: id };
   const result = await orderCollection.deleteOne(query);
   res.send(result);
