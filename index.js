@@ -126,6 +126,14 @@ app.get("/products", async (req, res) => {
   res.json(result);
 });
 
+//# delete a product: delete api
+app.delete("/deleteProduct/:id", async (req, res) => {
+  const result = await product_collection.deleteOne({
+    _id: ObjectId(req.params.id),
+  });
+  res.json(result);
+});
+
  //# delete specific order: delete api
  app.delete("/deleteOrder/:id", async (req, res) => {
   const id = req.params.id;
