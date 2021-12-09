@@ -87,9 +87,21 @@ const allOrder = await orderCollection.insertOne(order);
     res.json(allOrder);
 });
 
+//# load all orders: get api
+app.get("/orders", async (req, res) => {
+  const email = req.query.email;
+  let result;
+  if (email) {
+    result = await orderCollection.find({ email }).toArray();
+  } else {
+    result = await orderCollection.find({}).toArray();
+  }
+  res.json(result);
+});
+
  //#single data load: get api
  app.get("/placeOrder/:id", async (req, res) => {
-  const result = await product_collection.findOne({
+  const result = await serviceCollection.findOne({
     _id: ObjectId(req.params.id),
   });
   res.json(result);
