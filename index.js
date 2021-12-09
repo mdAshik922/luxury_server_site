@@ -114,6 +114,12 @@ app.put("/updateProduct", async (req, res) => {
   res.json(result);
 });
 
+//#all products load: get api
+app.get("/products", async (req, res) => {
+  const result = await serviceCollection.find({}).toArray();
+  res.json(result);
+});
+
  //# add a new product: post api
  app.post("/addProduct", async (req, res) => {
   const result = await orderCollection.insertOne(req.body);
