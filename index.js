@@ -106,6 +106,9 @@ app.get("/orders", async (req, res) => {
   });
   res.json(result);
 });
+ app.delete("/manageOrder/:id", async (req, res) => {
+ 
+});
 
  //# Change status: put api
  app.put("/updateOrderStatus", async (req, res) => {
