@@ -90,7 +90,7 @@ const allOrder = await orderCollection.insertOne(order);
 //# load all orders: get api
 app.get("/orders", async (req, res) => {
   const email = req.query.email;
-  let result;
+ 
   if (email) {
     result = await orderCollection.find({ email }).toArray();
   } else {
