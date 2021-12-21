@@ -107,7 +107,10 @@ app.get("/orders", async (req, res) => {
   res.json(result);
 });
  app.delete("/manageOrder/:id", async (req, res) => {
- 
+  const result = await orderCollection.findOne({
+    _id: ObjectId(req.params.id),
+  });
+  res.json(result);
 });
 
  //# Change status: put api
