@@ -109,6 +109,7 @@ app.get("/orders", async (req, res) => {
  app.delete("/manageOrder/:id", async (req, res) => {
   const id = req.params.id;
   const query = {_id: ObjectId(id)};
+  const result = await orderCollection.deleteOne(query);
 
 });
 
