@@ -110,7 +110,7 @@ app.get("/orders", async (req, res) => {
   const result = await orderCollection.findOne({
     _id: ObjectId(req.params.id),
   });
- 
+  res.json(result);
 });
 
  //# Change status: put api
