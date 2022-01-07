@@ -73,12 +73,11 @@ app.get('/service/:id', async (req, res) => {
    res.json(service);
  });
 
-app.get('/order', async (req, res) => {
-  const email = req.query.email;
-  const query = { email: email };
- const order = orderCollection.find(query);
- const result = await order.toArray();
-  res.json(result);
+app.get('/order/:id', async (req, res) => {
+  const id = req.params.id;
+  const query = { _id: id };
+  const result = await orderCollection.findOne(query);
+  res.send(result);
 });
 
 app.post('/order', async (req,res) => {
@@ -106,6 +105,7 @@ app.get("/orders", async (req, res) => {
   });
   res.json(result);
 });
+
  app.delete("/manageOrder/:id", async (req, res) => {
   const id = req.params.id;
   const query = { _id: id };
