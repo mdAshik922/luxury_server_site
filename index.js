@@ -73,12 +73,7 @@ app.get('/service/:id', async (req, res) => {
    res.json(service);
  });
 
-app.get('/order/:id', async (req, res) => {
-  const id = req.params.id;
-  const query = { _id: id };
-  const result = await orderCollection.findOne(query);
-  res.send(result);
-});
+
 
 app.post('/order', async (req,res) => {
 const order = req.body;
