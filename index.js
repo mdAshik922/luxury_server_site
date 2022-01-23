@@ -225,7 +225,7 @@ app.put('/users/admin', verifyToken, async (req, res) => {
 
 });
 
-
+              // ======  Payment System/ Method ======//
 
 // app.post('create/payment-intent', async (req, res) => {
 //   const paymentInfo = req.body;
