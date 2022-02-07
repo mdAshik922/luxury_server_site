@@ -216,7 +216,7 @@ app.put('/users/admin', verifyToken, async (req, res) => {
           const filter = { email: user.email };
           const updateDoc = { $set: { role: 'admin' } };
           const result = await userCollection.updateOne(filter, updateDoc);
-          res.json(result);
+          res.json( result );
       };
   }
   else {
