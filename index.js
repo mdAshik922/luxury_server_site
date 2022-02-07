@@ -194,7 +194,7 @@ app.get('/users/:email', async (req, res) => {
 app.post('/users', async (req, res) => {
   const user = req.body;
   const result = await userCollection.insertOne(user);
-  res.json(result);
+  res.json( result );
 });
 
 app.put('/users', async (req, res) => {
@@ -203,7 +203,7 @@ app.put('/users', async (req, res) => {
   const options = { upsert: true };
   const updateDoc = { $set: user };
   const result = await userCollection.updateOne(filter, updateDoc, options);
-  res.json(result);
+  res.json( result );
 });
 
 
