@@ -176,7 +176,7 @@ const allMessage = await reviewCollection.insertOne(message);
 app.get('/review', async(req, res) => {
    const review = reviewCollection.find({});
    const result = await review.toArray();
-    res.json(result);
+    res.json( result );
 });
 
 
